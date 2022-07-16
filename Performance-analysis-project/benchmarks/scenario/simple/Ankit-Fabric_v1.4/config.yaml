@@ -1,0 +1,35 @@
+---
+test:
+  name: simple
+  description: This is an example benchmark for caliper, to test the backend DLT's
+    performance with simple account opening & querying transactions
+  workers:
+    type: local
+    number: 1
+  rounds:
+  - label: open
+    description: Test description for the opening of an account through the deployed chaincode
+    txNumber: 400
+    rateControl:
+      type: fixed-rate
+      opts:
+        tps: 40
+    arguments:
+      txnPerBatch: 1
+    callback: benchmarks/scenario/simple/Ankit-Fabric_v1.4/open.js
+  - label: query
+    description: Test description for the query performance of the deployed chaincode
+    txNumber: 1000
+    rateControl:
+      type: fixed-rate
+      opts:
+        tps: 100
+    callback: benchmarks/scenario/simple/Ankit-Fabric_v1.4/query.js
+monitor:
+  monitor:
+  type:
+  - docker
+  docker:  
+    containers:
+    - all
+  interval: 1

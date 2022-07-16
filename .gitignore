@@ -1,0 +1,6 @@
+Performance-analysis-project/src/fabric/samples/fabcar/go/vendor
+crypto-config/*
+Performance-analysis-project/node_modules
+Performance-analysis-project/src/fabric/samples/fabcar/go/go.sum
+Performance-analysis-project/networks/fabric/Ankit-Fabric_v1.4/crypto-config
+Performance-analysis-project/networks/fabric/Ankit-Fabric_v2.1/crypto-config
