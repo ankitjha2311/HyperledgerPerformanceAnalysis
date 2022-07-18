@@ -31,6 +31,8 @@ function generateWorkload() {
     return workload;
 }
 
+
+
 module.exports.run = function () {
     let args = generateWorkload();
     return bc.invokeSmartContract(contx, 'fabcar', '1', args);
@@ -41,3 +43,15 @@ module.exports.end = function () {
 };
 
 module.exports.account_array = account_array;
+
+function generateWorkloadBatch() {
+    let workload = [];
+    for (let i = 0; i < txnPerBatch; i++) {
+
+        workload.push({
+            chaincodeFunction: 'createCar',
+            chaincodeArguments: [uuidv4(), 'A', 'B', 'C', "d"],
+        });
+    }
+    return workload;
+}
